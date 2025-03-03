@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce website Using HTML and CSS  </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="flower.css">
+    <style> 
+          :root{
+              --pink:#e84393;
+          }
+          body{
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              outline: none;
+              border: none;
+              text-decoration: none;
+              text-transform: capitalize;
+              transition: .2s linear;
+          }
+          html{
+              font-size: 62.5%;
+              scroll-behavior: smooth;
+              scroll-padding-top:6rem ;
+              overflow-x: hidden;
+          }
+          section{
+              padding: 2rem 9%;
+          }
+          .heading{
+              text-align: center;
+              font-size: 4rem;
+              color: #333;
+              padding: 1rem;
+              margin: 2rem 0;
+              background: rgba(255, 51, 153, 0.05);
+          }
+          .heading span{
+              color: var(--pink);
+          }
+          .btn{
+              display: inline-block;
+              margin-top: 1rem;
+              border-radius: 5rem;
+              background: #333;
+              color: #fff;
+              padding: .9rem 3.5rem;
+              cursor: pointer;
+              font-size: 1.7rem;
+          }
+          .btn:hover{
+              background: var(--pink);
+          }
+          header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              background: #fff;
+              padding: 1.5rem 9%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              z-index: 1000;
+              box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+          }
+          
+          header .logo {
+              font-size: 3rem;
+              color: #333;
+              font-weight: bolder;
+          }
+          
+          header .logo span {
+              color: var(--pink);
+          }
+          
+          header .navbar {
+              display: flex;
+              gap: 1.5rem;
+          }
+          
+          header .navbar a {
+              font-size: 2rem;
+              color: #666;
+              padding: 0 1.5rem;
+              transition: 0.3s;
+          }
+          
+          header .navbar a:hover {
+              color: #e84393;
+          }
+          
+          header .icons a {
+              font-size: 3rem;
+              color: #333;
+              margin-left: 1.5rem;
+              transition: 0.3s;
+          }
+          
+          header .icons a:hover {
+              color: #e84393;
+          }
+          
+          header #toggler {
+              display: none;
+          }
+          
+          header .fa-bars {
+              font-size:3rem;
+              color: #333;
+              padding: 0.8rem 1.2rem;
+              cursor: pointer;
+              border: 0.1rem solid rgba(0, 0, 0, 0.3);
+              display: none;
+              border-radius: .5rem;
+          }
+          .home {
+              display: flex;
+              align-items: center;
+              justify-content:flex-start;
+              min-height: 100vh;
+              position: relative;
+              background: url("https://media.istockphoto.com/id/1895175524/photo/flower-arrangement.jpg?b=1&s=612x612&w=0&k=20&c=DU5OnwWDqmpuJW26tBC17Unso-eQhz3qPtZOf3cUPl8=") no-repeat center center/cover;
+              background-size: cover;
+              background-position: center;
+          }
+          
+          .home::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.3); 
+          }
+          
+          .home .content {
+              max-width: 50rem;
+              position: relative;
+              z-index: 1;
+              text-align: left;
+          }
+          
+          .home .content h3 {
+              font-size: 5rem;
+              color: #fff;
+              font-weight: bold;
+              text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          }
+          
+          .home .content span {
+              font-size: 3rem;
+              color: var(--pink);
+              font-weight: bold;
+              display: block;
+              margin-top: 1rem;
+          }
+          
+          .home .content p {
+              font-size: 1.6rem;
+              color: #eee;
+              padding-top: 1rem;
+              line-height: 1.8rem;
+          }
+          .about {
+              padding: 5rem 2rem;
+              background: #f8f9fa;
+              text-align: center;
+          }
+          
+          .about .row {
+              display: flex;
+              align-items: center;
+              gap: 2rem;
+              flex-wrap: wrap;
+              padding: 2rem 0;
+              padding-bottom: 3rem;
+              justify-content: center;
+          }
+          
+          .about .row .video-container {
+              flex: 1 1 40rem;
+              position: relative;
+              overflow: hidden;
+              border-radius: 10px;
+          }
+          
+          .about .row .video-container .video {
+              width: 100%;
+              height: auto;
+              border: 1.5rem solid #fff;
+              border-radius: 10px;
+              box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+              object-fit: cover;
+          }
+          
+          .about .row .video-container h3 {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 2.5rem;
+              text-align: center;
+              background: rgba(255, 255, 255, 0.8);
+              color: #333;
+              width: 90%;
+              padding: 1rem 2rem;
+              border-radius: 5px;
+              font-weight: bold;
+          }
+          
+          .about .row .video-container h3:hover {
+              color: #e84393;
+          }
+          
+          .about .row .content {
+              flex: 1 1 40rem;
+              text-align: left;
+          }
+          
+          .about .row .content h3 {
+              font-size: 2.8rem;
+              color: #222;
+              margin-bottom: 1rem;
+          }
+          
+          .about .row .content p {
+              font-size: 1.6rem;
+              color: #666;
+              padding: .5rem 0;
+              line-height: 1.8rem;
+          }
+          
+          .icons-container {
+              background: #eee;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1.5rem;
+              padding: 5rem 10%;
+              justify-content: center;
+          }
+          
+          .icons-container .icons {
+              background: #fff;
+              border: 0.5rem solid rgba(0, 0, 0, 0.1);
+              padding: 2rem;
+              display: flex;
+              align-items: center;
+              flex: 1 1 20rem;
+              border-radius: 0.5rem;
+              transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+          }
+          
+          .icons-container .icons:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.2);
+          }
+          
+          .icons-container .icons img {
+              height: 5rem;
+              width: 5rem;
+              object-fit: contain;
+              margin-right: 1.5rem;
+          }
+          
+          
+          .icons-container .icons h3 {
+              color: #333;
+              font-size: 1.7rem;
+              margin-bottom: 0.3rem;
+          }
+          
+          .icons-container .icons p {
+              color: #666;
+              font-size: 1.4rem;
+              margin: 0.2rem 0 0;
+              line-height: 1.6rem;
+              max-width: 100%;
+          }
+          .product {
+              background: #f8f8f8;
+              padding: 4rem 9%;
+          }
+          
+          .product .box-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1.5rem;
+              justify-content: center;
+          }
+          
+          .product .box {
+              flex: 1 1 30rem;
+              box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
+              border-radius: .5rem;
+              border: .1rem solid rgba(0, 0, 0, 0.1);
+              position: relative;
+              background: #fff;
+              overflow: hidden;
+              transition: transform 0.3s ease-in-out;
+          }
+          
+          .product .box:hover {
+              transform: scale(1.02);
+          }
+          
+          .product .box .discount {
+              position: absolute;
+              top: 1rem;
+              left: 1rem;
+              padding: .7rem 1rem;
+              font-size: 1.8rem;
+              color: var(--pink);
+              background: rgba(255, 51, 153, 0.05);
+              border-radius: .5rem;
+              z-index: 1;
+          }
+          
+          .product .box .image {
+              position: relative;
+              text-align: center;
+              padding-top: 2rem;
+              overflow: hidden;
+          }
+          
+          .product .box .image img {
+              width: 100%;
+              max-height: 25rem;
+              object-fit: cover;
+              transition: transform 0.3s ease-in-out;
+          }
+          
+          .product .box:hover .image img {
+              transform: scale(1.1);
+          }
+          
+          .product .box .image .icons {
+              position: absolute;
+              bottom: -7rem;
+              left: 0;
+              right: 0;
+              display: flex;
+              transition: bottom 0.3s ease-in-out;
+          }
+          
+          .product .box:hover .image .icons {
+              bottom: 0;
+          }
+          
+          .product .box .image .icons a {
+              flex: 1;
+              height: 5rem;
+              line-height: 5rem;
+              font-size: 2rem;
+              background: var(--pink);
+              color: #fff;
+              text-align: center;
+              transition: background 0.3s ease-in-out;
+          }
+          
+          .product .box .image .icons .cart-btn {
+              border-left: .1rem solid rgba(255, 255, 255, 0.5);
+              border-right: .1rem solid rgba(255, 255, 255, 0.5);
+          }
+          
+          .product .box .image .icons a:hover {
+              background: #333;
+          }
+          
+          .product .box .content {
+              padding: 2rem;
+              text-align: center;
+          }
+          
+          .product .box .content h3 {
+              font-size: 2rem;
+              color: #333;
+          }
+          
+          .product .box .content .price {
+              font-size: 2rem;
+              color: var(--pink);
+              font-weight: bold;
+              padding-top: 1rem;
+          }
+          
+          .product .box .content .price span {
+              font-size: 1.5rem;
+              color: #999;
+              font-weight: lighter;
+              text-decoration: line-through;
+          }
+          .review {
+              background: #f8f8f8;
+              padding: 4rem 9%;
+              text-align: center;
+          }
+          
+          .review .heading {
+              font-size: 3rem;
+              color: #333;
+              margin-bottom: 2rem;
+          }
+          
+          .review .box-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 2rem;
+              justify-content: center;
+          }
+          
+          .review .box {
+              flex: 1 1 30rem;
+              background: #fff;
+              padding: 3rem 2rem;
+              border-radius: .5rem;
+              position: relative;
+              border: 1rem solid rgba(0, 0, 0, 0.1);
+              box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
+              transition: transform 0.3s ease-in-out;
+          }
+          
+          .review .box:hover {
+              transform: translateY(-5px);
+          }
+          
+          .review .box .fa-quote-right {
+              position: absolute;
+              bottom: 2rem;
+              right: 2rem;
+              font-size: 5rem;
+              color: #eee;
+          }
+          
+          .review .box .stars i {
+              color: var(--pink);
+              font-size: 2rem;
+          }
+          
+          .review .box p {
+              color: #666;
+              font-size: 1.5rem;
+              line-height: 1.6;
+              padding-top: 1.5rem;
+          }
+          
+          .review .box .user {
+              display: flex;
+              align-items: center;
+              padding-top: 2rem;
+          }
+          
+          .review .box .user img {
+              height: 6rem;
+              width: 6rem;
+              border-radius: 50%;
+              object-fit: cover;
+              margin-right: 1rem;
+          }
+          
+          .review .box .user h3 {
+              font-size: 2rem;
+              color: #333;
+          }
+          
+          .review .box .user span {
+              font-size: 1.5rem;
+              color: #777;
+          }
+          .contact .row {
+              display: flex;
+              flex-wrap: wrap-reverse;
+              gap: 2rem;
+              align-items: center;
+              justify-content: center;
+          }
+          
+          .contact .row .image {
+              flex: 1 1 40rem;
+              text-align: center;
+          }
+          
+          .contact .row .image img {
+              width: 100%;
+              max-width: 500px;
+              height: auto;
+          }
+          
+          .contact .row form {
+              flex: 1 1 40rem;
+              padding: 2rem 2.5rem;
+              box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
+              border: .1rem solid rgba(0, 0, 0, 0.1);
+              background: #fff;
+              border-radius: .5rem;
+          }
+          
+          .contact .row form .box {
+              width: 100%;
+              padding: 1rem;
+              font-size: 1.7rem;
+              color: #333;
+              text-transform: none;
+              border: .1rem solid rgba(0, 0, 0, 0.1);
+              border-radius: .5rem;
+              margin: .7rem 0;
+          }
+          
+          .contact .row form .box:focus {
+              border-color: var(--pink);
+          }
+          
+          .contact .row form textarea {
+              height: 15rem;
+              resize: none;
+          }
+          
+          .footer {
+              background: #f8f8f8;
+              padding: 4rem 9%;
+              text-align: center;
+          }
+          
+          .footer .box-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 2rem;
+              justify-content: center;
+          }
+          
+          .footer .box-container .box {
+              flex: 1 1 25rem;
+              text-align: left;
+          }
+          
+          .footer .box-container .box h3 {
+              color: #333;
+              font-size: 2.5rem;
+              padding-bottom: 1rem;
+          }
+          
+          .footer .box-container .box a {
+              display: block;
+              color: #666;
+              font-size: 1.5rem;
+              padding: .5rem 0;
+              text-decoration: none;
+              transition: color 0.3s ease-in-out;
+          }
+          
+          .footer .box-container .box a:hover {
+              color: var(--pink);
+              text-decoration: underline;
+          }
+          
+          .footer .box-container .box img {
+              margin-top: 1rem;
+              max-width: 100%;
+              height: auto;
+          }
+          
+          .footer .credit {
+              text-align: center;
+              padding: 2rem;
+              font-size: 1.8rem;
+              color: #333;
+              border-top: .1rem solid rgba(0, 0, 0, 0.1);
+              margin-top: 2rem;
+          }
+          
+          .footer .credit span {
+              color: var(--pink);
+          }
+          
+          
+          
+          @media(max-width:991px){
+              html{
+                  font-size: 55%;
+              }
+              header{
+                  padding: 2rem;
+              }
+              section{
+                  padding: 2rem;
+              }
+              .home{
+                  background-position: left;
+              }
+              .product {
+                  padding: 3rem 5%;
+              }
+              .product .box-container {
+                  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              }
+          
+          }
+          @media (max-width: 768px) {
+              header .fa-bars {
+                  display: block;
+              }
+              header .navbar {
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  right: 0;
+                  background: #fff;
+                  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: max-height 0.4s ease-in-out;
+                  display: flex;
+                  flex-direction: column;
+              }
+          
+              header #toggler:checked ~ .navbar {
+                  max-height: 35rem; 
+              }
+          
+              header .navbar a {
+                  display: block;
+                  padding: 1.5rem;
+                  text-align: center;
+                  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                  font-size: 1.8rem;
+              }
+              .home {
+                  text-align: center;
+                  padding: 4rem 1rem;
+              }
+          
+              .home .content {
+                  max-width: 90%;
+                  text-align: center;
+              }
+          
+              .home .content h3 {
+                  font-size: 3rem;
+              }
+          
+              .home .content span {
+                  font-size: 2rem;
+              }
+          
+              .home .content p {
+                  font-size: 1.3rem;
+              }
+          
+              .about .row {
+                  flex-direction: column;
+                  text-align: center;
+              }
+          
+              .about .row .video-container h3 {
+                  font-size: 2rem;
+                  width: 80%;
+              }
+          
+              .about .row .content {
+                  text-align: center;
+              }
+          
+              .about .row .content h3 {
+                  font-size: 2.5rem;
+              }
+          
+              .about .row .content p {
+                  font-size: 1.4rem;
+                  line-height: 1.6rem;
+              }
+          
+              .icons-container .icons h3{
+                  font-size: 2rem;
+                  
+              }
+              .icons-container .icons span{
+                  font-size: 1.5rem;
+                  
+              }
+              .product .box-container {
+                  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              }
+              .review {
+                  padding: 3rem 5%;
+              }
+              .review .box-container {
+                  flex-direction: column;
+                  align-items: center;
+              }
+              .review .box {
+                  width: 90%;
+              }
+          
+              .contact .row {
+                  flex-direction: column;
+                  text-align: center;
+              }
+          
+              .contact .row .image img {
+                  max-width: 100%;
+              }
+          
+              .contact .row form {
+                  width: 100%;
+              }
+          
+              .footer {
+                  padding: 3rem 5%;
+              }
+              .footer .box-container {
+                  flex-direction: column;
+                  align-items: center;
+                  text-align: center;
+              }
+              .footer .box-container .box {
+                  text-align: center;
+              }
+          }
+          
+          @media (max-width:450px){
+              html{
+                  font-size: 50%;
+              }
+              .heading{
+                  font-size: 3rem;
+              }
+          
+              
+              .product .heading {
+                  font-size: 2.5rem;
+              }
+              .product .box {
+                  padding: 1.5rem;
+              }
+              .product .box h3 {
+                  font-size: 1.8rem;
+              }
+              .product .box .price {
+                  font-size: 1.6rem;
+              }
+              .product .box .btn {
+                  font-size: 1.4rem;
+                  padding: 0.6rem 1.5rem;
+              }
+              .review .heading {
+                  font-size: 2.5rem;
+              }
+              .review .box {
+                  width: 100%;
+                  padding: 1.5rem;
+              }
+              .review .box h3 {
+                  font-size: 1.8rem;
+              }
+              .review .box p {
+                  font-size: 1.4rem;
+              }
+              .contact .row form .box {
+                  font-size: 1.5rem;
+              }
+              .footer .credit {
+                  font-size: 1.5rem;
+              }
+          }
+
+    </style>
+</head>
+<body>
+    <!-- Header section start-->
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        <a href="#" class="logo">Flower <span>.</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="#" class="fas fa-user"></a>
+        </div>
+    </header>
+
+  <!-- Home Section-->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Fresh Flower</h3>
+            <span>Natural & Beautiful Flowers</span>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum aliquam assumenda at voluptatem quidem, et odio ad impedit nisi odit corporis, provident distinctio. Aspernatur nulla fugit, ratione reiciendis pariatur quaerat?</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- About Section-->
+     <section class="about" id="about">
+        <h1 class="heading"><span>About</span> Us</h1>
+        <div class="row">
+        <div class="video-container">
+            <video src="https://videos.pexels.com/video-files/3127074/3127074-sd_640_360_24fps.mp4" loop autoplay muted ></video>
+            <h3>Best Flower Sellers</h3>
+        </div>
+        <div class="content">
+            <h3>Why Choose Us?</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa magnam numquam provident, quod quia neque culpa expedita laboriosam eius accusantium alias voluptate tempora beatae quos velit, molestiae id totam! In quia ipsam veniam ea? Maiores.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim vero explicabo nesciunt aperiam ullam, hic sequi, impedit consequatur adipisci ex mollitia! Natus ex eius dignissimos!</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </div>
+     </section>
+
+     <!--Icons Section-->
+
+     <section class="icons-container">
+            <div class="icons">
+                <img src="https://cdn-icons-png.flaticon.com/128/5465/5465858.png" alt="">
+                <div class="info">
+                    <h3>Free Delivery</h3>
+                    <span>On all Orders</span>
+
+                </div>
+            </div>
+
+            <div class="icons">
+                <img src="https://cdn-icons-png.flaticon.com/128/4989/4989753.png" alt="">
+                <div class="info">
+                    <h3>10 days return</h3>
+                    <span>Money-back Guarantee</span>
+
+                </div>
+            </div>
+
+            <div class="icons">
+                <img src="https://cdn-icons-png.flaticon.com/128/1139/1139982.png" alt="">
+                <div class="info">
+                    <h3>Offer & Gifts</h3>
+                    <span>On all orders</span>
+
+                </div>
+            </div>
+
+            <div class="icons">
+                    <img src="https://cdn-icons-png.flaticon.com/128/10188/10188159.png" alt="">
+                    <div class="info">
+                        <h3>Secure Payment</h3>
+                        <span>Protected By Google Pay</span>
+
+                    </div>
+                </div>
+    </section>
+
+    <!--Product Section-->
+        <section class="product" id="products">
+            <h1 class="heading">Latest <span>Products</span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/1328764/pexels-photo-1328764.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/1903965/pexels-photo-1903965.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/4065170/pexels-photo-4065170.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/29558368/pexels-photo-29558368/free-photo-of-close-up-of-fresh-tulip-bouquet-on-table.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/20635589/pexels-photo-20635589/free-photo-of-close-up-of-a-vase-with-a-bunch-of-tulips.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/20594507/pexels-photo-20594507/free-photo-of-white-tulips-in-vase.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/30060214/pexels-photo-30060214/free-photo-of-cozy-tulip-arrangement-with-candlelit-ambiance.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/7482398/pexels-photo-7482398.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <span class="discount">-10%</span>
+                    <div class="image">
+                        <img src="https://images.pexels.com/photos/30060214/pexels-photo-30060214/free-photo-of-cozy-tulip-arrangement-with-candlelit-ambiance.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="">
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <a href="#" class="cart-btn">Add to Cart</a>
+                            <a href="#" class="fas fa-share"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Flower pot</h3>
+                        <div class="price">$12.99 <span>$15.99</span></div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+
+        <!-- Review Section-->
+         <section class="review" id="review">
+            <h1 class="heading">Customer's <span>review</span></h1>
+            <div class="box-container">
+                <div class="box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, totam recusandae laboriosam doloribus asperiores sapiente nisi quo? In harum debitis rem error accusantium adipisci totam, qui quo ullam dolore doloribus, quidem ut pariatur ad perferendis.</p>
+                    <div class="user">
+                        <img src="https://images.pexels.com/photos/30947676/pexels-photo-30947676/free-photo-of-moody-portrait-of-tattooed-man-in-dark-setting.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                        <div class="user-info">
+                            <h3>John Deo</h3>
+                            <span>happy Customer</span>
+                        </div>
+                    </div>
+                    <span class="fas fa-quote-right"></span>
+                </div>
+
+
+                <div class="box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, totam recusandae laboriosam doloribus asperiores sapiente nisi quo? In harum debitis rem error accusantium adipisci totam, qui quo ullam dolore doloribus, quidem ut pariatur ad perferendis.</p>
+                    <div class="user">
+                        <img src="https://images.pexels.com/photos/30923365/pexels-photo-30923365/free-photo-of-bearded-man-in-colorful-turban-smoking.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                        <div class="user-info">
+                            <h3>John Deo</h3>
+                            <span>happy Customer</span>
+                        </div>
+                    </div>
+                    <span class="fas fa-quote-right"></span>
+                </div>
+
+
+                <div class="box">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, totam recusandae laboriosam doloribus asperiores sapiente nisi quo? In harum debitis rem error accusantium adipisci totam, qui quo ullam dolore doloribus, quidem ut pariatur ad perferendis.</p>
+                    <div class="user">
+                        <img src="https://images.pexels.com/photos/30956582/pexels-photo-30956582/free-photo-of-smiling-woman-in-yellow-sweater-and-red-beanie.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                        <div class="user-info">
+                            <h3>John Deo</h3>
+                            <span>happy Customer</span>
+                        </div>
+                    </div>
+                    <span class="fas fa-quote-right"></span>
+                </div>
+   
+            </div>   
+         </section>
+
+         <!-- Contact Section-->
+          <section class="contact" id="contact">
+            <h1 class="heading"><span>Contact</span>Us</h1>
+            <div class="row">
+                <form id="contact-form">
+                    <input type="text" placeholder="Name" class="box" id="name" required>
+                    <input type="email" placeholder="Email" class="box" id="email" required>
+                    <input type="number" placeholder="Number" class="box">
+                    <textarea  class="box" placeholder="Message" cols="30" rows="10" id="message"  required></textarea>
+                    <input type="submit" value="Send Message" class="btn">
+                </form>
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/7881305/pexels-photo-7881305.jpeg?auto=compress&cs=tinysrgb&w=800" alt="">
+                </div>
+            </div>
+          </section>
+
+
+          <!--footer Section-->
+          <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>Quick links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Products</a>
+                    <a href="#">Review</a>
+                    <a href="#">Contact</a>
+                </div>
+
+
+                <div class="box">
+                    <h3>Extra links</h3>
+                    <a href="#">My Accounts</a>
+                    <a href="#">My Orders</a>
+                    <a href="#">My Favorite</a>
+                </div>
+
+
+                <div class="box">
+                    <h3>Location</h3>
+                    <a href="#">India</a>
+                    <a href="#">USA</a>
+                    <a href="#">Japan</a>
+                    <a href="#">Canada</a>
+                    <a href="#">France</a>
+                </div>
+
+                <div class="box">
+                    <h3>Contact Info</h3>
+                    <a href="#">+123-456-7890</a>
+                    <a href="#">example@gmail.com</a>
+                    <a href="#">Mumbai,India- 400010</a>
+                    <img src="#" alt="Payment app">
+                </div>
+
+            </div>
+
+            <div class="credit">Created by <span>Akhil Verma </span> |all rights reserved </div>
+          </section>
+     
+</body>
+</html>
