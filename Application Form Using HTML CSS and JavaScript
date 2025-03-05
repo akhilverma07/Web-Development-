@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+      
+        .form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #444;
+        }
+
+       
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 0;
+            transform: scale(1.1);
+        }
+
+     
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 32%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Application Form</h2>
+        <form id="applicationForm">
+
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" pattern="[0-9]{10}" required title="Enter a valid 10-digit mobile number">
+
+            <label for="apaarId">APAAR ID:</label>
+            <input type="text" id="apaarId" required>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female" required> Female</label>
+            </div>
+
+            <label>Date of Birth:</label>
+            <div class="dob-group">
+                <select id="dobDay" required>
+                    <option value="">Day</option>
+                </select>
+                <select id="dobMonth" required>
+                    <option value="">Month</option>
+                </select>
+                <select id="dobYear" required>
+                    <option value="">Year</option>
+                </select>
+            </div>
+
+            <label for="address">Address:</label>
+            <textarea id="address" required></textarea>
+
+            <label for="city">City:</label>
+            <select id="city" required>
+                <option value="">Select City</option>
+                <option value="Adilabad">Adilabad</option>
+                <option value="Alampur">Alampur</option>
+            </select>
+            <label for="pinCode">Pin Code:</label>
+            <input type="text" id="pinCode" pattern="[0-9]{6}" required title="Enter a valid 6-digit pin code">
+
+            <label for="state">State:</label>
+            <select id="state" required>
+                <option value="">Select State</option>
+                <option value="Addanki">Addanki</option>
+                <option value="Adoni">Adoni</option>
+            </select>
+
+            <label for="country">Country:</label>
+            <select id="country" required>
+                <option value="India">India</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Hobbies:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="hobbies" value="Drawing"> Drawing</label>
+                <label><input type="checkbox" name="hobbies" value="Singing"> Singing</label>
+                <label><input type="checkbox" name="hobbies" value="Dancing"> Dancing</label>
+                <label><input type="checkbox" name="hobbies" value="Sketching"> Sketching</label>
+                <label><input type="checkbox" name="hobbies" value="Others"> Others</label>
+            </div>
+
+            <label>Qualification:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="qualification" value="High School(10th)"> High School(10th)</label>
+                <label><input type="checkbox" name="qualification" value="Higher School(12th)"> Higher School(12th)</label>
+            </div>
+            <label>Courses Applied For:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="courses" value="BCA" required> BCA</label>
+                <label><input type="radio" name="courses" value="B.Com" required> B.Com</label>
+                <label><input type="radio" name="courses" value="B.Sc" required> B.Sc</label>
+                <label><input type="radio" name="courses" value="BA" required> BA</label>
+                <label><input type="radio" name="courses" value="B.Tech" required> B.Tech</label>
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="button" id="googleSignup">Signup with Google</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        
+        const daySelect = document.getElementById('dobDay');
+        const monthSelect = document.getElementById('dobMonth');
+        const yearSelect = document.getElementById('dobYear');
+
+        for (let i = 1; i <= 31; i++) {
+            daySelect.innerHTML += `<option value="${i}">${i}</option>`;
+        }
+
+        for (let i = 1; i <= 12; i++) {
+            monthSelect.innerHTML += `<option value="${i}">${i}</option>`;
+        }
+
+        for (let i = new Date().getFullYear(); i >= 1900; i--) {
+            yearSelect.innerHTML += `<option value="${i}">${i}</option>`;
+        }
+
+        
+        document.getElementById('applicationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let firstName = document.getElementById('firstName').value;
+            let email = document.getElementById('email').value;
+            let mobile = document.getElementById('mobile').value;
+            let gender = document.querySelector('input[name="gender"]:checked');
+            let course = document.querySelector('input[name="courses"]:checked');
+
+            if (!firstName || !email || !mobile || !gender || !course) {
+                alert("Please fill all required fields correctly.");
+            } else {
+                alert("Form submitted successfully!");
+                this.submit(); 
+            }
+        });
+
+        
+        document.getElementById('googleSignup').addEventListener('click', function() {
+            window.location.href = "https://accounts.google.com/signup";
+        });
+    </script>
+
+</body>
+</html>
