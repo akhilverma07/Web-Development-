@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Stopwatch</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .stopwatch {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .time {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .start { background: #28a745; color: white; }
+        .stop { background: #dc3545; color: white; }
+        .reset { background: #007bff; color: white; }
+        button:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Stopwatch() {
+            const [time, setTime] = React.useState(0);
+            const [running, setRunning] = React.useState(false);
+
+            React.useEffect(() => {
+                let timer;
+                if (running) {
+                    timer = setInterval(() => {
+                        setTime((prevTime) => prevTime + 1);
+                    }, 1000);
+                } else {
+                    clearInterval(timer);
+                }
+                return () => clearInterval(timer);
+            }, [running]);
+
+            const formatTime = (seconds) => {
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+            };
+
+            return (
+                <div className="stopwatch">
+                    <h2>Stopwatch</h2>
+                    <div className="time">{formatTime(time)}</div>
+                    <button className="start" onClick={() => setRunning(true)}>Start</button>
+                    <button className="stop" onClick={() => setRunning(false)}>Stop</button>
+                    <button className="reset" onClick={() => { setTime(0); setRunning(false); }}>Reset</button>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<Stopwatch />);
+    </script>
+
+</body>
+</html>
