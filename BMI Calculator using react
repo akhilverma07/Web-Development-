@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React BMI Calculator</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .bmi-container {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function BMICalculator() {
+            const [weight, setWeight] = React.useState("");
+            const [height, setHeight] = React.useState("");
+            const [bmi, setBmi] = React.useState(null);
+            const [status, setStatus] = React.useState("");
+
+            const calculateBMI = () => {
+                if (weight && height) {
+                    const heightInMeters = height / 100;
+                    const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+                    setBmi(bmiValue);
+
+                    if (bmiValue < 18.5) setStatus("Underweight");
+                    else if (bmiValue >= 18.5 && bmiValue <= 24.9) setStatus("Normal weight");
+                    else if (bmiValue >= 25 && bmiValue <= 29.9) setStatus("Overweight");
+                    else setStatus("Obese");
+                } else {
+                    setBmi(null);
+                    setStatus("Enter valid values");
+                }
+            };
+
+            return (
+                <div className="bmi-container">
+                    <h2>BMI Calculator</h2>
+                    <input 
+                        type="number" 
+                        placeholder="Weight (kg)" 
+                        value={weight} 
+                        onChange={(e) => setWeight(e.target.value)} 
+                    />
+                    <input 
+                        type="number" 
+                        placeholder="Height (cm)" 
+                        value={height} 
+                        onChange={(e) => setHeight(e.target.value)} 
+                    />
+                    <button onClick={calculateBMI}>Calculate BMI</button>
+                    {bmi && (
+                        <div className="result">
+                            <p>Your BMI: {bmi}</p>
+                            <p>Status: {status}</p>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<BMICalculator />);
+    </script>
+
+</body>
+</html>
